@@ -1,0 +1,103 @@
+export const products = [
+  // HOMBRES
+  {
+    title: "Remera Oversize Negra",
+    description: "Remera de algodón premium, corte oversize.",
+    price: 25000,
+    stock: 10,
+    category: "hombres",
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+  },
+  {
+    title: "Buzo Hoodie Essential",
+    description: "Hoodie de abrigo con capucha, tejido suave.",
+    price: 38000,
+    stock: 8,
+    category: "hombres",
+    image: "https://images.unsplash.com/photo-1503341733017-1901578f9c47",
+  },
+  {
+    title: "Zapatillas Urban Street",
+    description: "Zapatillas urbanas cómodas, estilo streetwear.",
+    price: 59000,
+    stock: 5,
+    category: "hombres",
+    image: "https://images.unsplash.com/photo-1528701800489-20be9f36c188",
+  },
+  {
+    title: "Campera Rompeviento",
+    description: "Campera liviana resistente al viento.",
+    price: 42000,
+    stock: 7,
+    category: "hombres",
+    image: "https://images.unsplash.com/photo-1520975918318-3f4f26f8f7d0",
+  },
+
+  // MUJERES
+  {
+    title: "Top Deportivo Coral",
+    description: "Top deportivo de alta elasticidad.",
+    price: 21000,
+    stock: 12,
+    category: "mujeres",
+    image: "https://images.unsplash.com/photo-1598971639058-1631a52b28af",
+  },
+  {
+    title: "Campera Puffer Mujer",
+    description: "Campera inflada liviana para invierno.",
+    price: 47000,
+    stock: 6,
+    category: "mujeres",
+    image: "https://images.unsplash.com/photo-1607345366927-51bd55f097ec",
+  },
+  {
+    title: "Calzas Fit Pro",
+    description: "Calzas de entrenamiento con ajuste cómodo.",
+    price: 26000,
+    stock: 15,
+    category: "mujeres",
+    image: "https://images.unsplash.com/photo-1592810545778-0f5c084a1bb4",
+  },
+  {
+    title: "Zapatillas Runner Women",
+    description: "Zapatillas running livianas.",
+    price: 52000,
+    stock: 9,
+    category: "mujeres",
+    image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de",
+  },
+
+  // OFERTAS
+  {
+    title: "Remera Clásica Blanca",
+    description: "Remera lisa clásica unisex.",
+    price: 15000,
+    stock: 20,
+    category: "ofertas",
+    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+  },
+  {
+    title: "Jogger Negro",
+    description: "Jogger liviano deportivo.",
+    price: 23000,
+    stock: 11,
+    category: "ofertas",
+    image: "https://images.unsplash.com/photo-1536148935331-408321065b18",
+  },
+  {
+    title: "Top Casual Beige",
+    description: "Top casual suave y cómodo.",
+    price: 18000,
+    stock: 14,
+    category: "ofertas",
+    image: "https://images.unsplash.com/photo-1551854838-5931e8ed90a7",
+  },
+  {
+    title: "Zapatillas Old School",
+    description: "Zapatillas estilo retro.",
+    price: 42000,
+    stock: 5,
+    category: "ofertas",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+  },
+];

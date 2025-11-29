@@ -1,0 +1,17 @@
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #fafafa;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-top: 80px; /* deja espacio debajo del navbar fijo */
+  width: 100%;
+}
