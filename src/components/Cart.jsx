@@ -1,39 +1,141 @@
+import React from "react";
 import { useCart } from "../context/CartContext";
 
 const Cart = ({ open, onClose }) => {
-  const { cart, increaseQty, decreaseQty, removeFromCart, total } = useCart();
+  const { cart, addToCart, removeFromCart, deleteItem } = useCart();
 
   if (!open) return null;
 
   return (
-    <div style={{
-      position: "fixed", top: 0, left: 0, width: "100%", height: "100%",
-      background: "rgba(0,0,0,0.4)", display: "flex",
-      justifyContent: "center", alignItems: "center"
-    }}>
-      <div style={{ background: "#fff", padding: 20, width: 400, borderRadius: 8 }}>
-        <h2>Carrito 🛒</h2>
-        <button onClick={onClose} style={{ float: "right" }}>Cerrar</button>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        width: "350px",
+        height: "100vh",
+        background: "white",
+        boxShadow: "-2px 0 10px rgba(0,0,0,0.2)",
+        padding: "20px",
+        zIndex: 2000,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <button
+        onClick={onClose}
+        style={{
+          background: "transparent",
+          border: "none",
+          fontSize: "20px",
+          cursor: "pointer",
+          marginBottom: "15px",
+        }}
+      >
+        ✖
+      </button>
 
-        {cart.length === 0 && <p>Carrito vacío</p>}
+      <h2 style={{ marginBottom: "20px" }}>🛒 Tu carrito</h2>
 
-        {cart.map((item) => (
-          <div key={item.id} style={{ marginBottom: 10 }}>
-            <strong>{item.title}</strong>
-            <p>${item.price}</p>
+      {cart.length === 0 ? (
+        <p>Tu carrito está vacío.</p>
+      ) : (
+        <div style={{ flex: 1, overflowY: "auto" }}>
+          {cart.map((item) => (
+            <div
+              key={item.id}
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginBottom: "15px",
+                borderBottom: "1px solid #ddd",
+                paddingBottom: "10px",
+              }}
+            >
+              <img
+                src={item.img}
+                alt={item.name}
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                }}
+              />
 
-            <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-              <button onClick={() => decreaseQty(item.id)}>-</button>
-              <span>{item.qty}</span>
-              <button onClick={() => increaseQty(item.id)}>+</button>
-              <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
+              <div style={{ flex: 1 }}>
+                <h4 style={{ margin: 0 }}>{item.name}</h4>
+                <p style={{ margin: "5px 0" }}>${item.price}</p>
+
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "5px" }}
+                >
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    style={{
+                      padding: "4px 8px",
+                      border: "1px solid #ccc",
+                      cursor: "pointer",
+                    }}
+                  >
+                    -
+                  </button>
+
+                  <span>{item.qty}</span>
+
+                  <button
+                    onClick={() => addToCart(item)}
+                    style={{
+                      padding: "4px 8px",
+                      border: "1px solid #ccc",
+                      cursor: "pointer",
+                    }}
+                  >
+                    +
+                  </button>
+
+                  <button
+                    onClick={() => deleteItem(item.id)}
+                    style={{
+                      marginLeft: "auto",
+                      background: "red",
+                      color: "white",
+                      border: "none",
+                      padding: "5px 10px",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      )}
 
-        <hr />
-        <h3>Total: ${total.toFixed(2)}</h3>
-      </div>
+      {cart.length > 0 && (
+        <div style={{ borderTop: "1px solid #ddd", paddingTop: "10px" }}>
+          <h3>
+            Total: ${cart.reduce((sum, item) => sum + item.price * item.qty, 0)}
+          </h3>
+          <button
+            style={{
+              width: "100%",
+              background: "#ff9900",
+              color: "white",
+              padding: "12px",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
+          >
+            Finalizar compra
+          </button>
+        </div>
+      )}
     </div>
   );
 };
