@@ -7,6 +7,7 @@ import Hombres from "./pages/Hombres";
 import Mujeres from "./pages/Mujeres";
 import Ofertas from "./pages/Ofertas";
 import "./App.css";
+import ProductDetail from "./pages/ProductDetail";
 
 import { CartProvider, useCart } from "./context/CartContext";
 import Products from "./components/Products";
@@ -52,6 +53,7 @@ function App() {
             <Route path="/hombres" element={<Hombres />} />
             <Route path="/mujeres" element={<Mujeres />} />
             <Route path="/ofertas" element={<Ofertas />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="*" element={<h2>Página no encontrada</h2>} />
           </Routes>
 
