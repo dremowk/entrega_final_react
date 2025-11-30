@@ -1,13 +1,16 @@
 // src/App.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
+
 import Home from "./pages/Home";
 import Hombres from "./pages/Hombres";
 import Mujeres from "./pages/Mujeres";
 import Ofertas from "./pages/Ofertas";
-import "./App.css";
 import ProductDetail from "./pages/ProductDetail";
+import Checkout from "./pages/Checkout"; // ← NUEVO
+
+import "./App.css";
 
 import { CartProvider, useCart } from "./context/CartContext";
 import Products from "./components/Products";
@@ -36,6 +39,7 @@ const CartButton = () => {
       >
         🛒 Carrito ({cart.reduce((sum, item) => sum + item.qty, 0)})
       </button>
+
       <Cart open={open} onClose={() => setOpen(false)} />
     </>
   );
@@ -54,6 +58,10 @@ function App() {
             <Route path="/mujeres" element={<Mujeres />} />
             <Route path="/ofertas" element={<Ofertas />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+
+            {/* NUEVA RUTA */}
+            <Route path="/checkout" element={<Checkout />} />
+
             <Route path="*" element={<h2>Página no encontrada</h2>} />
           </Routes>
 

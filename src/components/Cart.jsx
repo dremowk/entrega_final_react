@@ -136,6 +136,21 @@ const Cart = ({ open, onClose }) => {
           </button>
         </div>
       )}
+      <button
+        onClick={() => (window.location.href = "/checkout")}
+        style={{
+          marginTop: "20px",
+          width: "100%",
+          padding: "12px",
+          background: "green",
+          color: "white",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+        }}
+      >
+        Ir al Checkout
+      </button>
     </div>
   );
 };
