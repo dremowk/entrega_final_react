@@ -1,8 +1,9 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const Cart = ({ open, onClose }) => {
-  const { cart, addToCart, removeFromCart, deleteItem } = useCart();
+  const { cart, increaseQty, decreaseQty, deleteItem } = useCart();
 
   if (!open) return null;
 
@@ -71,7 +72,7 @@ const Cart = ({ open, onClose }) => {
                   style={{ display: "flex", alignItems: "center", gap: "5px" }}
                 >
                   <button
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => decreaseQty(item.id)}
                     style={{
                       padding: "4px 8px",
                       border: "1px solid #ccc",
@@ -84,7 +85,7 @@ const Cart = ({ open, onClose }) => {
                   <span>{item.qty}</span>
 
                   <button
-                    onClick={() => addToCart(item)}
+                    onClick={() => increaseQty(item.id)}
                     style={{
                       padding: "4px 8px",
                       border: "1px solid #ccc",
@@ -120,37 +121,25 @@ const Cart = ({ open, onClose }) => {
           <h3>
             Total: ${cart.reduce((sum, item) => sum + item.price * item.qty, 0)}
           </h3>
-          <button
+
+          <Link
+            to="/checkout"
             style={{
+              marginTop: "20px",
               width: "100%",
-              background: "#ff9900",
-              color: "white",
               padding: "12px",
-              border: "none",
+              background: "green",
+              color: "white",
               borderRadius: "8px",
-              cursor: "pointer",
-              marginTop: "10px",
+              textAlign: "center",
+              display: "block",
+              textDecoration: "none",
             }}
           >
-            Finalizar compra
-          </button>
+            Ir al Checkout
+          </Link>
         </div>
       )}
-      <button
-        onClick={() => (window.location.href = "/checkout")}
-        style={{
-          marginTop: "20px",
-          width: "100%",
-          padding: "12px",
-          background: "green",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          cursor: "pointer",
-        }}
-      >
-        Ir al Checkout
-      </button>
     </div>
   );
 };

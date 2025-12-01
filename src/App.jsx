@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Hombres from "./pages/Hombres";
 import Mujeres from "./pages/Mujeres";
 import Ofertas from "./pages/Ofertas";
+import AllProducts from "./pages/AllProducts";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout"; // ← NUEVO
 
@@ -57,9 +58,9 @@ function App() {
             <Route path="/hombres" element={<Hombres />} />
             <Route path="/mujeres" element={<Mujeres />} />
             <Route path="/ofertas" element={<Ofertas />} />
+            <Route path="/productos" element={<AllProducts />} />
             <Route path="/product/:id" element={<ProductDetail />} />
 
-            {/* NUEVA RUTA */}
             <Route path="/checkout" element={<Checkout />} />
 
             <Route path="*" element={<h2>Página no encontrada</h2>} />

@@ -18,9 +18,18 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const removeFromCart = (id) => {
+  const increaseQty = (id) => {
     setCart((prev) =>
-      prev.map((p) => (p.id === id ? { ...p, qty: Math.max(p.qty - 1, 1) } : p))
+      prev.map((p) => (p.id === id ? { ...p, qty: p.qty + 1 } : p))
+    );
+  };
+
+  const decreaseQty = (id) => {
+    setCart(
+      (prev) =>
+        prev
+          .map((p) => (p.id === id ? { ...p, qty: p.qty - 1 } : p))
+          .filter((p) => p.qty > 0) // ← ELIMINA AUTOMÁTICAMENTE CUANDO LLEGA A 0
     );
   };
 
@@ -28,9 +37,18 @@ export const CartProvider = ({ children }) => {
     setCart((prev) => prev.filter((p) => p.id !== id));
   };
 
+  const clearCart = () => setCart([]);
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, deleteItem }}
+      value={{
+        cart,
+        addToCart,
+        increaseQty,
+        decreaseQty,
+        deleteItem,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>

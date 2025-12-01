@@ -1,11 +1,15 @@
 // src/pages/Mujeres.jsx
 import React from "react";
+import CategoryProducts from "../components/CategoryProducts";
 
 const Mujeres = () => {
   return (
-    <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
-      Sección Mujeres 👟
-    </h2>
+    <div>
+      <h2 style={{ textAlign: "center", marginTop: "20px" }}>
+        Catálogo de Mujeres
+      </h2>
+      <CategoryProducts category="mujeres" />
+    </div>
   );
 };
 
